@@ -1,0 +1,127 @@
+package javaEndProject;
+
+import java.util.ArrayList;
+
+class Shape {
+
+	public void displayArea() {
+        System.out.println("This shape does not have a specific area calculation method.");
+    }
+
+}
+
+
+class Rectangle extends Shape {
+	
+	  private int length;
+	    private int width;
+
+	    public Rectangle(int length, int width) {
+	        this.length = length;
+	        this.width = width;
+	    }
+
+	    @Override
+	    public void displayArea() {
+	        System.out.println("Area of the Rectangle: " + calculateArea());
+	    }
+
+	    public double calculateArea() {
+	        return length * width;
+	    }
+
+}
+
+class Square extends Shape {
+	
+	    private int length;
+
+	    public Square(int length) {
+	        this.length = length;
+	      
+	    }
+
+	    @Override
+	    public void displayArea() {
+	        System.out.println("Area of the Square: " + calculateArea());
+	    }
+
+	    public double calculateArea() {
+	        return length * length;
+	    }
+
+}
+
+class Circle extends Shape {
+	
+	    private float radius;
+
+	    public Circle(float radius) {
+	        this.radius = radius;
+	      
+	    }
+
+	    @Override
+	    public void displayArea() {
+	        System.out.println("Area of the Circle: " + calculateArea());
+	    }
+
+	    public double calculateArea() {
+	        return  3.14*radius*radius;
+	    }
+
+}
+class Triangle extends Shape {
+	
+	  private float base;
+	  private float height;
+	  
+	    public Triangle(float base , float height) {
+	        this.base = base;
+	        this.height = height;
+	      
+	    }
+
+	    @Override
+	    public void displayArea() {
+	        System.out.println("Area of the Triangle: " + calculateArea());
+	    }
+
+	    public double calculateArea() {
+	        return 0.5*base*height;
+	    }
+
+}
+
+
+public class AreaDemo {
+
+	public static void main(String[] args) {
+		
+		ArrayList<Shape> shapes = new ArrayList<>();
+				
+		 try
+		 {
+	           
+	         shapes.add(new Rectangle(4, 6));
+	         shapes.add(new Square(4));
+	         shapes.add(new Circle(7));
+	         shapes.add(new Triangle(4,5));
+
+	         for(Shape shape : shapes) {
+	        	 
+	              shape.displayArea();
+	         }
+	    }
+		 catch(Exception e)
+		 {
+	         System.err.println("An error occurred: " + e.getMessage());
+	   } 
+		 finally 
+		 {
+	          System.out.println("Program execution completed.");
+	   }	
+
+	}
+
+}
